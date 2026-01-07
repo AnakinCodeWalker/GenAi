@@ -1,0 +1,113 @@
+# -------------------------------------
+# Python
+# -------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# -------------------------------------
+# Jupyter / Notebooks
+# -------------------------------------
+.ipynb_checkpoints/
+*.ipynb~
+
+# -------------------------------------
+# Environment variables / Secrets
+# -------------------------------------
+.env
+.env.*
+*.env
+
+# API keys & credentials
+*.key
+*.pem
+secrets/
+credentials/
+
+# -------------------------------------
+# GenAI / LLM Artifacts
+# -------------------------------------
+
+# Model weights & caches
+models/
+checkpoints/
+*.bin
+*.pt
+*.pth
+*.safetensors
+
+# HuggingFace cache
+.huggingface/
+hf_cache/
+
+# Ollama / local LLMs
+.ollama/
+ollama/
+
+# vLLM cache
+vllm_cache/
+
+# -------------------------------------
+# Vector Databases / Embeddings
+# -------------------------------------
+chroma/
+faiss/
+vectordb/
+embeddings/
+
+# -------------------------------------
+# Experiment Tracking
+# -------------------------------------
+wandb/
+mlruns/
+tensorboard/
+runs/
+
+# -------------------------------------
+# Logs & Outputs
+# -------------------------------------
+logs/
+*.log
+outputs/
+results/
+
+# -------------------------------------
+# Data Files
+# -------------------------------------
+data/
+datasets/
+*.csv
+*.json
+*.jsonl
+*.parquet
+
+# -------------------------------------
+# OS / Editor
+# -------------------------------------
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+
+# -------------------------------------
+# Build / Distribution
+# -------------------------------------
+build/
+dist/
+*.egg-info/
+
+# -------------------------------------
+# Temporary / Misc
+# -------------------------------------
+tmp/
+.cache/
