@@ -1,9 +1,6 @@
 # Generative AI Learning & Notes 🤖✨
 -------------------------------------
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/artificial-intelligence/artificial-intelligence.png" width="120" alt="AI Logo"/>
-</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Focus-Generative%20AI-blueviolet?style=for-the-badge" />
