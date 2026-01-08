@@ -29,8 +29,11 @@ import numpy as np
 # -------------------------------------
 
 # contains homogenous elements.
+# if u put heterogeous element into array , we'll have unexpected behaviour
 # NumPy arrays contain homogeneous elements (all elements share the same dtype).
 # -------------------------------------
+
+# array() -> takes one argument.
 
 # created a 1d array.
 a1d = np.array([1, 2, 3])
@@ -52,12 +55,14 @@ print("3d array : ", np.array([[[1, 2], [3, 4]],
 
 print("Using the ndim:", b.ndim)   # this provides the number of dimensions of the array
 print("Using the shape:", b.shape) # returns the dimensions (rows, columns)
-print("Using the size:", b.size)   # returns the total number of elements in the array
-print("Using dtype:", b.dtype)     # dtype specifies the element type (int, float, bool, etc.)
+print("Using the size:", b.size)   # returns the total number of row*column in the array
+print("Using dtype:", b.dtype)     # dtype specifies the element type (int, float, bool, etc.) we can override the default data type by this
 
-print(np.zeros(2))  # create an array of zeros with 2 elements
-print(np.ones(2))   # create an array of ones with 2 elements
+print("creating array of 0's ",np.zeros((2,3)))  # create an array of zeros with 2 row and 3 column
+print("creating array of 1's ",np.ones(2))   # create an array of ones with 2 elements
 
+# full method takes 2 args : .full((row,col),element)
+print("creating array of same values ",np.full((2,3),5))#creates an array of 2 row 3 col and element as 5
 # -------------------------------------
 # creates a range of elements in sorted order
 # np.arange(start, stop, step, dtype=None)
@@ -65,14 +70,17 @@ print(np.ones(2))   # create an array of ones with 2 elements
 print("creates a range of element :", np.arange(4))  # starts from 0 and end is exclusive
 
 # -------------------------------------
+
 # creating an array using the dtype -- refer to the datatype of array elements.
-# -------------------------------------
-dTypeArray = np.array([1, 2, 3], dtype=np.float32)
+# if u excceed the limit of a lets say 16bit python will provide it 32 bit dynamically.
+#if u try to make 64 into 32 by dtype u will notice unexpected behaviour.
+
+dTypeArray = np.array([1, 2, 3], dtype=np.float32)#overriding  data type from int to float. 
 print(dTypeArray)
 
 # -------------------------------------
 # reshaping an array
-# -------------------------------------
+# --------------------------------------
 a = np.array([1, 2, 3, 4, 5, 6])
 # a is the array to be reshaped
 # (2, 3) is number of rows and columns
@@ -107,11 +115,21 @@ print("col_vec shape:", col_vec.shape)
 # https://numpy.org/doc/stable/user/absolute_beginners.html#broadcasting
 # --> when you want to perform operations between arrays of different sizes,
 # or between an array and a single scalar value.
+
+# the samller array is being broadcasted.
+#  
+
 # -------------------------------------
-data = np.array([2, 3, 4])
-another_array = np.array([[1, 2, 3], [2, 3, 4]])
+"""  still not clear..
+
+** wrong**
+
+data = np.array([1, 3])
+another_array = np.array([[1, 2, 3], [2, 3, 3]])
 print("Array After broadcasting")
-print(data * another_array)
+print( another_array+data )
+
+"""
 
 # -------------------------------------
 # array of ones (multi-dimensional)
@@ -175,10 +193,54 @@ new_array[0] = 999  # this affects the original array as well
 print(f"ravel array : {new_array}")
 print(f"original array after making change in ravel array {original_array}")
 
+
+# -------------------------------------
+#TRANSPOSE : .T
+
+# transpose in python -->[row become column ,column become row]
+arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print("Tranpose of an array :",arr.T)
+
+
+
+
+# Accessing diffrent thing in array.
+
+access_arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print("Accessing the 1st row",access_arr[0])
+print("Accessing each row and column ",access_arr[:,:])
+print("one row specfic column",access_arr[2,2])
+print("accessing specific array")
+print(f"accessing 1 array: {access_arr[0]} second array : {access_arr[1]}")
+
+Array_1d =np.array([2,0])
+print("Accessing via other array :",access_arr[Array_1d])
+
+# : -> lets u access each row 
+# print every row and  sepcific column column
+print("Printing every row and provided column index: ",arr[:,1]) # : --> print every row , then each row column 1
+
+# All  math methods 
+"""
+all math methods are easy so i am leaving it only ptp need to be studied.
+and axis 1 means row , 0 means column.
+
+ptp -> peak to peak (max-min) for each row and column
+no of row = number of ans  = 2, same for col = 3
+"""  
+ptp_array= np.array([[1,1,6],[1,1,3]])
+# 4-1 =3 , 5-2=3 , 6-3=3
+new_ptp_row_array=np.ptp(ptp_array,axis=1 )
+new_ptp_col_array=np.ptp(ptp_array,axis=0 )
+print("using the ptp method ",new_ptp_row_array)
+print("using the ptp method ",new_ptp_col_array)
+
 # -------------------------------------
 # some more topics left
 # -------------------------------------
 """
+ --> visit Broadcasting again 
+
  working with mathematical formulas
  --> https://numpy.org/doc/stable/user/absolute_beginners.html#working-with-mathematical-formulas
 
@@ -188,6 +250,8 @@ print(f"original array after making change in ravel array {original_array}")
  Plotting arrays with Matplotlib
  --> https://numpy.org/doc/stable/user/absolute_beginners.html#plotting-arrays-with-matplotlib
 """
+
+
 
 # -------------------------------------
 # High-dimensional array (matrix / tensor)
@@ -199,6 +263,4 @@ print(f"original array after making change in ravel array {original_array}")
 
 # SEARCH FOR SEABORN
 # another site for data visualization
-# suru wale code jo de rhe h issey koi comment remove nhi kro agar koi mistake hai to usko shi kro , or add extra comment make english clear
-# (I preserved the start-of-file comments as you requested and fixed mistakes above.)
 # -------------------------------------
